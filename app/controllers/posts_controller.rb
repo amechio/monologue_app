@@ -32,7 +32,12 @@ class PostsController < ApplicationController
     else
       render :edit
     end
- end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice:"ツイートを削除しました！"
+  end
 
   private
   def post_params
