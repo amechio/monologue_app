@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update]
   def index
     @posts = Post.all
   end
@@ -17,15 +18,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path, notice: "ツイートを編集しました！"
     else
@@ -36,5 +37,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:name, :content)
+  end
+
+  def set_blog
+    @post = Post.find(params[:id])
   end
 end
