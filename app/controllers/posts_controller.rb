@@ -22,15 +22,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    #@post.show
   end
 
   def edit
-    #@post.edit
   end
 
   def update
-    #@post.update
     if @post.update(post_params)
       redirect_to posts_path, notice: "ツイートを編集しました！"
     else
