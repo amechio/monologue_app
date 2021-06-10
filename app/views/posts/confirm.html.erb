@@ -1,9 +1,8 @@
 <h3>以下の内容で、送信する。</h3>
 <%= form_with(model: @post, local: true) do |form| %>
-  <%= form.hidden_field :name %>
   <%= form.hidden_field :content %>
   <p>タイトル:<%= @post.name %></p>
   <p>本文:<%= @post.content %></p>
   <%= form.submit  "ツイートする" %>
-  <%= form.submit "戻る", name: 'back' %> 
+  <%= form.submit "戻る", name: 'back' %>
 <% end %>
