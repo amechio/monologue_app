@@ -5,4 +5,5 @@
   <p>タイトル:<%= @post.name %></p>
   <p>本文:<%= @post.content %></p>
   <%= form.submit  "ツイートする" %>
+  <%= form.submit "戻る", name: 'back' %> 
 <% end %>

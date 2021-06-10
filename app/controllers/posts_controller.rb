@@ -9,11 +9,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    if @post.save
-      redirect_to posts_path, notice: "ツイートしました！"
-    else
+    @post = Post.new(post_params)
+    if params[:back]
       render :new
+    else
+      if @post.save
+        redirect_to posts_path, notice: "ツイートしました！"
+      else
+        render :new
+      end
     end
   end
 
@@ -41,6 +45,7 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
+    render :new if @post.invalid?
   end
 
   private
